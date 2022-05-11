@@ -1,8 +1,13 @@
 :root {
   --BlueFin: #2a9df4;
 }
-html {
-  height: fit-content;
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  background: linear-gradient(#e66465, #9198e5);
+}
+.projects-container {
   background: linear-gradient(#e66465, #9198e5);
 }
 * {

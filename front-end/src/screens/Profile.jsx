@@ -42,53 +42,55 @@ function Profile({ user, projects, setToggle, setUser }) {
 
   return (
     <div className="profile-screen-container">
-      <div className="profilecomp">
-        <div>
-          <ProfileComp
-            profile={profile}
-            setProfileModal={setProfileModal}
-            username={user?.username}
-          />
+      <div>
+        <div className="profilecomp">
+          <div className="profilescreen">
+            <ProfileComp
+              profile={profile}
+              setProfileModal={setProfileModal}
+              username={user?.username}
+            />
+          </div>
+          <div className="profile-addproject">
+            <button id="add-projects" onClick={() => setShowModal(true)}>
+              Add Project
+            </button>
+          </div>
         </div>
-        <div className="profile-addproject">
-          <button id="add-projects" onClick={() => setShowModal(true)}>
-            Add Project
-          </button>
-        </div>
-      </div>
 
-      {profileModal ? (
-        <EditProfileModal
-          setProfileModal={setProfileModal}
-          user={user}
-          setUser={setUser}
+        {profileModal ? (
+          <EditProfileModal
+            setProfileModal={setProfileModal}
+            user={user}
+            setUser={setUser}
+            setToggle={setToggle}
+          />
+        ) : null}
+        {showModal ? (
+          <AddProjModal
+            setShowModal={setShowModal}
+            profile_id={user.profile.id}
+            setToggle={setToggle}
+          />
+        ) : null}
+        {projectEditModal ? (
+          <EditProjModal
+            setProjectEditModal={setProjectEditModal}
+            profile_id={user.profile.id}
+            project={project}
+            setToggle={setToggle}
+            user={user}
+          />
+        ) : null}
+        {/* <div className="profile-projects"> */}
+        <ProjectComp
           setToggle={setToggle}
-        />
-      ) : null}
-      {showModal ? (
-        <AddProjModal
-          setShowModal={setShowModal}
-          profile_id={user.profile.id}
-          setToggle={setToggle}
-        />
-      ) : null}
-      {projectEditModal ? (
-        <EditProjModal
+          projects={userProjects}
+          setProject={setProject}
           setProjectEditModal={setProjectEditModal}
-          profile_id={user.profile.id}
-          project={project}
-          setToggle={setToggle}
-          user={user}
         />
-      ) : null}
-      {/* <div className="profile-projects"> */}
-      <ProjectComp
-        setToggle={setToggle}
-        projects={userProjects}
-        setProject={setProject}
-        setProjectEditModal={setProjectEditModal}
-      />
-      {/* </div>/ */}
+        {/* </div>/ */}
+      </div>
     </div>
   );
 }
