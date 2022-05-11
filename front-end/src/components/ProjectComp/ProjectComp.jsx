@@ -27,17 +27,17 @@ export default function ProjectComp({
   };
 
   return (
-    <div className="personal-projects">
+    <motion.div
+      className="personal-projects"
+      whileHover={{ x: -15, y: -10, boxShadow: "10px 5px 50px black" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       {projects &&
         projects.map(project => (
-          <div key={project.id}>
-            <motion.div
-              className="projects"
-              whileHover={{ x: -15, y: -10, boxShadow: "10px 5px 50px black" }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
+          <div key={project.id} className="project-div">
+            <motion.div className="projects">
               <h3 className="project-component-name">{project.title}</h3>
               <a
                 className="project-component-github"
@@ -72,6 +72,6 @@ export default function ProjectComp({
             </motion.div>
           </div>
         ))}
-    </div>
+    </motion.div>
   );
 }

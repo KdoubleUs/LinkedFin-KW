@@ -29,11 +29,11 @@
   height: 1.5rem;
   width: 1.5rem;
 } */
-.profile-screen-container {
+/* .profile-screen-container {
+  position: relative;
   height: 100%;
   width: 100%;
-}
-
+} */
 .profilecomp {
   border-style: solid;
   position: relative;
@@ -75,12 +75,12 @@
 .profile-projects {
   position: relative;
 }
-.personal-projects {
+/* .personal-projects {
   position: relative;
-  height: 50em;
+
   top: 20%;
   background: #e2d1c3;
-}
+} */
 .profile-component-image {
   float: right;
   border-radius: 50%;
@@ -115,17 +115,7 @@
 .project-component-github {
   text-decoration: none;
 }
-.projects {
-  margin-bottom: 1em;
-  border-style: solid;
-  width: 50em;
-  height: 8em;
-  position: relative;
-  left: 20%;
-  padding: 1.2em;
-  border-radius: 5px;
-  background-color: #c0e4ff;
-}
+
 .setofimages {
   display: flex;
   flex-direction: column;

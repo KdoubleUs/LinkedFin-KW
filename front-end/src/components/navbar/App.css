@@ -1,6 +1,6 @@
 .nav-container {
   display: flex;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   border-bottom: 2px solid #2a9df4;
@@ -24,18 +24,6 @@
   transform: translateY(-40%);
 }
 
-/* .nav-logo-text {
-  color: #2a9df4;
-  padding-top: 3vh;
-} */
-
-/* .login-button {
-  position: absolute;
-  right: 0;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-} */
 .login-button {
   position: relative;
   top: 50%;

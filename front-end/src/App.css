@@ -2,15 +2,8 @@
   --BlueFin: #2a9df4;
 }
 html {
-  background-color: #e2d1c3;
-}
-.app {
-  height: 100vh;
-  width: 100vw;
-}
-body {
-  background: linear-gradient(#fdfcfb, #e2d1c3);
-  background-repeat: no-repeat;
+  height: fit-content;
+  background: linear-gradient(#e66465, #9198e5);
 }
 * {
   padding: 0;
@@ -170,4 +163,26 @@ input {
 }
 .project-component-github {
   color: black;
+}
+
+/* PROFILE SECTION*/
+.project-div {
+  width: 3em;
+}
+.personal-projects {
+  border-style: solid;
+}
+.personal-projects {
+  margin-bottom: 1em;
+  border-style: solid;
+  /* height: 8em; */
+  position: relative;
+  width: 50em;
+  /* left: 20%; */
+  padding: 1.2em;
+  border-radius: 5px;
+  background-color: #c0e4ff;
+}
+.projects {
+  width: 15em;
 }
