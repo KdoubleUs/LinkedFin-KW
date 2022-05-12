@@ -58,7 +58,7 @@ function Profile({ user, projects, setToggle, setUser }) {
         </div>
       </div>
       <div className="profile-project">
-        <h1 className="profile-title">
+        <h1 className="profile-title name-heading">
           {" "}
           Welcome to {user?.username} projects{" "}
         </h1>

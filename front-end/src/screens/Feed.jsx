@@ -9,6 +9,7 @@ import FeedUser from "../components/FeedUser";
 import { AiFillLike } from "react-icons/ai";
 import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
+import defaultimg from "../images/nouser.png";
 export default function Feed({ projects, user }) {
   const [profiles, setProfiles] = useState([]);
   const [currentUser, setCurrentUser] = useState({
@@ -19,8 +20,12 @@ export default function Feed({ projects, user }) {
       setCurrentUser({
         image: user.profile.image,
       });
+    } else if (!user) {
+      setCurrentUser({
+        image: defaultimg,
+      });
     }
-  }, [user]);
+  }, []);
   useEffect(() => {
     fetch("http://localhost:8000/profile/all")
       .then(res => res.json())
