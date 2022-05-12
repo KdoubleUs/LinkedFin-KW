@@ -22,10 +22,10 @@ function Ads() {
           Show more <MdExpandMore />
         </div>
       </div>
-      <img src={img1} alt="none" height={200} width={300} className="ads" />
-      <img src={img2} alt="none" height={200} width={300} className="ads" />
-      <img src={img3} alt="none" height={200} width={300} className="ads" />
-      <img src={img4} alt="none" height={200} width={300} className="ads" />
+      <img src={img1} alt="none" height={130} width={200} className="ads" />
+      <img src={img2} alt="none" height={130} width={200} className="ads" />
+      <img src={img3} alt="none" height={130} width={200} className="ads" />
+      <img src={img4} alt="none" height={130} width={200} className="ads" />
     </div>
   );
 }

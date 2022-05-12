@@ -33,17 +33,17 @@
 .profilecomp {
   border-style: solid;
   position: relative;
-  top: 15%;
+  /* top: 15%; */
   left: 50%;
   transform: translate(-50%);
   width: 60em;
   display: flex;
   flex-direction: column;
   margin-left: 1em;
+  margin-top: 1em;
   padding: 3em;
   border-radius: 5px;
   height: 12em;
-  background-color: #c0e4ff;
 
   /* background-color: yellow; */
 }
@@ -117,19 +117,19 @@
   align-items: center;
   justify-content: space-between;
   /* justify-content: center; */
-  width: 20em;
+  width: 13em;
   height: fit-content;
   border-radius: 5px;
   border-style: solid;
   padding: 2em;
   margin-right: 1em;
-  margin-top: 1em;
+  margin-top: 3em;
   background-color: #c5cbe3;
 }
 .news {
   position: relative;
   border-style: solid;
-  width: 15em;
+  width: fit-content;
   padding: 2em;
   /* margin-right: 100em; */
   line-height: 2em;
@@ -199,4 +199,31 @@
 }
 .post-box {
   border-radius: 10px;
+}
+.ads {
+  margin-bottom: 1.5em;
+}
+.event-container {
+  border-style: solid;
+  height: 20em;
+  padding: 1em;
+  width: 14em;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+#feed-profile-container {
+  height: 30em;
+}
+.event-box {
+  border-bottom: 1px solid;
+}
+.event-h3 {
+  margin-bottom: 0.5em;
+}
+#feed-profile-pic {
+  align-self: center;
+  border-radius: 50%;
 }

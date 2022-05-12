@@ -42,22 +42,26 @@ function Profile({ user, projects, setToggle, setUser }) {
 
   return (
     <div className="profile-screen-container">
-      <div>
-        <div className="profilecomp">
-          <div className="profilescreen">
-            <ProfileComp
-              profile={profile}
-              setProfileModal={setProfileModal}
-              username={user?.username}
-            />
-          </div>
-          <div className="profile-addproject">
-            <button id="add-projects" onClick={() => setShowModal(true)}>
-              Add Project
-            </button>
-          </div>
+      {/* <div> */}
+      <div className="profilecomp">
+        <div className="profilescreen">
+          <ProfileComp
+            profile={profile}
+            setProfileModal={setProfileModal}
+            username={user?.username}
+          />
         </div>
-
+        <div className="profile-addproject">
+          <button id="add-projects" onClick={() => setShowModal(true)}>
+            Add Project
+          </button>
+        </div>
+      </div>
+      <div className="profile-project">
+        <h1 className="profile-title">
+          {" "}
+          Welcome to {user?.username} projects{" "}
+        </h1>
         {profileModal ? (
           <EditProfileModal
             setProfileModal={setProfileModal}
@@ -89,8 +93,9 @@ function Profile({ user, projects, setToggle, setUser }) {
           setProject={setProject}
           setProjectEditModal={setProjectEditModal}
         />
-        {/* </div>/ */}
       </div>
+      {/* </div>/ */}
+      {/* </div> */}
     </div>
   );
 }

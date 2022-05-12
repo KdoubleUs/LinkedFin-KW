@@ -4,12 +4,23 @@ import "./feed-style.css";
 import { motion } from "framer-motion";
 import Ads from "../components/ads";
 import Post from "../components/Search/Post";
+import Events from "../components/Events";
+import FeedUser from "../components/FeedUser";
 import { AiFillLike } from "react-icons/ai";
 import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
-export default function Feed({ projects }) {
+export default function Feed({ projects, user }) {
   const [profiles, setProfiles] = useState([]);
-
+  const [currentUser, setCurrentUser] = useState({
+    image: "",
+  });
+  useEffect(() => {
+    if (user) {
+      setCurrentUser({
+        image: user.profile.image,
+      });
+    }
+  }, [user]);
   useEffect(() => {
     fetch("http://localhost:8000/profile/all")
       .then(res => res.json())
@@ -22,6 +33,10 @@ export default function Feed({ projects }) {
     <div className="feed-container">
       {/* <h1 className="feed-title"> LINKFIN PROJECT</h1> */}
       <div className="projects-container">
+        <div className="feed-left">
+          <FeedUser userimage={currentUser.image} />
+          <Events />
+        </div>
         <div className="project-feed">
           <Post />
           <div className="line"></div>

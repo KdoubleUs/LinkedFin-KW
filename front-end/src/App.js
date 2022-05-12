@@ -49,7 +49,10 @@ function App() {
               )
             }
           />
-          <Route path="/feed" element={<Feed projects={projects} />} />
+          <Route
+            path="/feed"
+            element={<Feed projects={projects} user={user} />}
+          />
           <Route
             path="/signin"
             element={

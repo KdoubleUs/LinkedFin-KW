@@ -111,7 +111,7 @@ function Landing({ isAuthenticated }) {
   };
   return (
     <Section>
-      <Container>
+      <Container className="landing-section">
         <ColumnLeft>
           <div className="input-container">
             <form onSubmit={handleSubmit} className="landing-form">
