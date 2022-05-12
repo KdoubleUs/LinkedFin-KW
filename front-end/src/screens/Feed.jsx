@@ -6,7 +6,7 @@ import Ads from "../components/ads";
 import Post from "../components/Search/Post";
 import Events from "../components/Events";
 import FeedUser from "../components/FeedUser";
-import { AiFillLike } from "react-icons/ai";
+// import { AiFillLike } from "react-icons/ai";
 import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
 import defaultimg from "../images/nouser.png";
@@ -97,7 +97,7 @@ export default function Feed({ projects, user }) {
                 <div className="like-option">
                   <ul className="list-option">
                     <li className="select-options">
-                      <AiFillLike className="icons" /> Like
+                      {/* <AiFillLike className="icons" /> Like */}Like
                     </li>
                     <li className="select-options">
                       <FcComments className="icons" />
