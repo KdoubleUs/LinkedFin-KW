@@ -20,10 +20,12 @@ export default function ProjectComp({
       body: "",
     };
 
-    fetch(`http://localhost:8000/projects/${id}/`, options).then(response => {
-      console.log(response);
-      setToggle(prev => !prev);
-    });
+    fetch(`https://linkyfin.herokuapp.com/projects/${id}/`, options).then(
+      response => {
+        console.log(response);
+        setToggle(prev => !prev);
+      }
+    );
   };
 
   return (

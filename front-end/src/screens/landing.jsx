@@ -76,7 +76,7 @@ function Landing({ isAuthenticated }) {
         body: JSON.stringify(formData),
       };
 
-      fetch("http://localhost:8000/accounts/register", options).then(
+      fetch("https://linkyfin.herokuapp.com/accounts/register", options).then(
         response => {
           setAccountCreated(true);
         }

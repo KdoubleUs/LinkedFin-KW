@@ -14,7 +14,7 @@ function App() {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8000/projects/")
+    fetch("https://linkyfin.herokuapp.com/projects/")
       .then(res => res.json())
       .then(data => {
         setProjects(data);

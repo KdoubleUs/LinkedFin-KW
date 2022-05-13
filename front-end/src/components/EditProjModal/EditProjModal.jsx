@@ -3,17 +3,21 @@ import CSRFToken from "../CSRFToken";
 import Cookies from "js-cookie";
 // import "./AddProjModal.css";
 
-export default function Modal({ setProjectEditModal, profile_id, project, user, setToggle }) {
-
+export default function Modal({
+  setProjectEditModal,
+  profile_id,
+  project,
+  user,
+  setToggle,
+}) {
   const [newProject, setNewProject] = useState({
     title: project?.title,
     github_link: project?.github_link,
     description: project?.description,
-    profile_id
+    profile_id,
   });
 
-
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { name, value } = event.target;
     setNewProject({
       ...newProject,
@@ -26,12 +30,11 @@ export default function Modal({ setProjectEditModal, profile_id, project, user, 
       title: project.title,
       github_link: project.github_link,
       description: project.description,
-      profile_id
-    }) 
-    
-  }, [user])
+      profile_id,
+    });
+  }, [user]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     let options = {
       method: "PUT",
@@ -41,21 +44,20 @@ export default function Modal({ setProjectEditModal, profile_id, project, user, 
         "X-CSRFToken": Cookies.get("csrftoken"),
       },
       credentials: "include",
-      body: JSON.stringify(newProject)
+      body: JSON.stringify(newProject),
     };
-      
-    
-    fetch(`http://localhost:8000/projects/${project.id}/`, options)
+
+    fetch(`https://linkyfin.herokuapp.com/projects/${project.id}/`, options)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        console.log(data)
+        console.log(data);
         // setUserProjects(prev => ([
         //   ...prev,
         //   data
         // ]));
-        setToggle(prev => !prev)
+        setToggle(prev => !prev);
         setProjectEditModal(false);
       });
   };
@@ -91,7 +93,10 @@ export default function Modal({ setProjectEditModal, profile_id, project, user, 
           </form>
 
           <div className="close-container">
-            <button onClick={() => setProjectEditModal(false)} className="close-btn">
+            <button
+              onClick={() => setProjectEditModal(false)}
+              className="close-btn"
+            >
               x
             </button>
           </div>

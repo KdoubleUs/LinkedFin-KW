@@ -28,7 +28,7 @@ export default function Layout({
       credentials: "include",
     };
 
-    fetch("http://localhost:8000/accounts/authenticated", options)
+    fetch("https://linkyfin.herokuapp.com/accounts/authenticated", options)
       .then(response => {
         return response.json();
       })
@@ -41,7 +41,7 @@ export default function Layout({
           setIsAuthenticated(false);
         }
 
-        fetch("http://localhost:8000/profile/user", userOptions)
+        fetch("https://linkyfin.herokuapp.com/accounts/user", userOptions)
           .then(response => {
             return response.json();
           })

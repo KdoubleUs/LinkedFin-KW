@@ -27,7 +27,7 @@ export default function Feed({ projects, user }) {
     }
   }, []);
   useEffect(() => {
-    fetch("http://localhost:8000/profile/all")
+    fetch("https://linkyfin.herokuapp.com/profile/all")
       .then(res => res.json())
       .then(data => {
         setProfiles(data);

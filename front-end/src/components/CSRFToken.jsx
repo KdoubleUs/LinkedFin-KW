@@ -20,10 +20,12 @@ export default function CSRFToken() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/accounts/csrf_cookie", {
+    fetch("https://linkyfin.herokuapp.com/accounts/csrf_cookie", {
       credentials: "include",
     }).then(response => setcsrftoken(getCookie("csrftoken")));
   }, []);
 
   return <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />;
 }
+
+//ttp://localhost:8000/accounts/csrf_cookie"

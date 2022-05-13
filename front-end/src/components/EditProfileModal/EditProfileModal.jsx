@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import CSRFToken from "../CSRFToken";
 import Cookies from "js-cookie";
 
-export default function EditProfileModal({setProfileModal, user, setUser, setToggle}) {
+export default function EditProfileModal({
+  setProfileModal,
+  user,
+  setUser,
+  setToggle,
+}) {
   const [formData, setFormData] = useState({
     bio: user?.profile.bio,
     github: user?.profile.github,
     image: user?.profile.image,
-    user_id: user.profile.user_id
+    user_id: user.profile.user_id,
   });
 
   useEffect(() => {
@@ -15,14 +20,13 @@ export default function EditProfileModal({setProfileModal, user, setUser, setTog
       bio: user.profile.bio,
       github: user.profile.github,
       image: user.profile.image,
-      user_id: user.profile.user_id
-    }) 
-    
-  }, [user])
+      user_id: user.profile.user_id,
+    });
+  }, [user]);
 
   const { bio, github, image } = formData;
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -30,31 +34,33 @@ export default function EditProfileModal({setProfileModal, user, setUser, setTog
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     let options = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken")
+        "X-CSRFToken": Cookies.get("csrftoken"),
       },
-      credentials: 'include',
-      body: JSON.stringify(formData)
-    }
+      credentials: "include",
+      body: JSON.stringify(formData),
+    };
 
-    console.log(formData)
-    console.log(options)
+    console.log(formData);
+    console.log(options);
 
-    fetch('http://localhost:8000/profile/update', options).then((response) => {
-      return response.json()
-    }).then((data) => {
-      console.log(data)
-      setUser(data)
-      setToggle(prev => !prev)
-      setProfileModal(false)
-    })
+    fetch("https://linkyfin.herokuapp.com/profile/update", options)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        setUser(data);
+        setToggle(prev => !prev);
+        setProfileModal(false);
+      });
   };
 
   return (
@@ -87,7 +93,10 @@ export default function EditProfileModal({setProfileModal, user, setUser, setTog
           </form>
 
           <div className="close-container">
-            <button onClick={() => setProfileModal(false)} className="close-btn">
+            <button
+              onClick={() => setProfileModal(false)}
+              className="close-btn"
+            >
               x
             </button>
           </div>

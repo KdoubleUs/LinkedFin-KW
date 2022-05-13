@@ -23,7 +23,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
       credentials: "include",
     };
 
-    fetch("http://localhost:8000/accounts/logout", options)
+    fetch("https://linkyfin.herokuapp.com/accounts/logout", options)
       .then(response => {
         return response.json();
       })
