@@ -223,3 +223,228 @@ input {
   margin: 1em 0 0.5em 0;
   text-align: center;
 }
+:root {
+  --BlueFin: #2a9df4;
+}
+
+/* BACKGROUND */
+.landing-section {
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #abbaab,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #abbaab, #ffffff);
+}
+body {
+  height: 100vh;
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #abbaab,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #abbaab, #ffffff);
+}
+.projects-container {
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #abbaab,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #abbaab, #ffffff);
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+/* STYLING FOR LANDING PAGE*/
+.landing-input {
+  border-style: solid;
+  border-color: blue;
+  width: 25em;
+  height: 3em;
+  padding: 0.2em 0.2em 0.2em 1.5em;
+  margin: 1em;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
+  color: #4056a1;
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: 0.3em;
+}
+
+#landing-image {
+  border-radius: 18px;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.title-container {
+  margin-bottom: 1.3em;
+  word-spacing: 0.2em;
+}
+
+/*Signin Style */
+
+/* .signinContainer { */
+/* margin-top: 10vh; */
+/* justify-content: center; */
+/* text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 55vh;
+  width: 60vh;
+  color: white;
+  background-color: white;
+
+  border: 2px #2a9df4 solid;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+.signinButton {
+  display: flex;
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  height: 35px;
+  width: 120px;
+  border: #2a9df4 2px solid;
+  border-radius: 20px;
+  background-color: white;
+  font-family: Helvetica-Bold;
+  color: #2a9df4;
+  align-items: center;
+  justify-content: center;
+}
+.text-container {
+  top: 0;
+  height: 3em;
+  background-color: blue;
+}
+.topText {
+  margin-bottom: 10em;
+
+  top: 0;
+}
+#textfield {
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+.signinInput {
+  padding-top: 10%;
+
+  display: flex;
+  height: 150px;
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 3px;
+  row-gap: 30px;
+  flex-direction: column;
+}
+
+input {
+  font-family: Helvetica;
+  height: 150px;
+  width: 300px;
+  font-size: large;
+  border: 1.5px solid #2a9df4;
+}
+.usernameField {
+  border: 2px #2a9df4 solid;
+}
+.passwordField {
+  border: 2px #2a9df4 solid;
+} */
+
+/* kw sign in style*/
+.signinContainer {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+.signinField {
+  border-radius: solid;
+  margin-top: 1em;
+}
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30em;
+}
+.signinButton {
+  width: 15em;
+  border-radius: 2px;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+.topText {
+  margin-bottom: 0.5em;
+}
+.signinButton:hover {
+  background-color: #2a9df4;
+  transform: scale(1.2);
+  transition: ease-in-out 200ms;
+  color: white;
+}
+.project-component-github {
+  color: black;
+}
+
+/* PROFILE SECTION*/
+.project-div {
+  width: 3em;
+}
+/* .personal-projects {
+  border-style: solid;
+  position: relative;
+} */
+.profile-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.personal-projects {
+  margin-bottom: 1em;
+  border-style: solid;
+  /* height: 8em; */
+  position: relative;
+  width: 50em;
+  /* left: 20%; */
+  padding: 1.2em;
+  border-radius: 5px;
+}
+.projects {
+  width: 15em;
+}
+.profile-title {
+  margin: 1em 0 0.5em 0;
+  text-align: center;
+}

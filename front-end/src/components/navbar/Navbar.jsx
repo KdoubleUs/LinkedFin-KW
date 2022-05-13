@@ -1,4 +1,4 @@
-import "./App.css";
+import "./nav.css";
 import { Fragment } from "react";
 import img from "../../images/Logo.png";
 import { Link, useNavigate, NavLink } from "react-router-dom";
