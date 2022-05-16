@@ -6,7 +6,7 @@ import Ads from "../components/ads";
 import Post from "../components/Search/Post";
 import Events from "../components/Events";
 import FeedUser from "../components/FeedUser";
-// import { AiFillLike } from "react-icons/ai";
+import { AiFillLike } from "react-icons/ai";
 import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
 import defaultimg from "../images/nouser.png";
@@ -68,9 +68,9 @@ export default function Feed({ projects, user }) {
                   key={project.id}
                   className="project-feeds"
                   whileHover={{
-                    x: -10,
+                    x: -5,
                     y: -5,
-                    boxShadow: "10px 5px 50px black",
+                    boxShadow: "2px 3px 10px black",
                   }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -116,7 +116,7 @@ export default function Feed({ projects, user }) {
                   <div className="like-option">
                     <ul className="list-option">
                       <li className="select-options">
-                        {/* <AiFillLike className="icons" /> Like */}Like
+                        <AiFillLike className="icons" /> Like
                       </li>
                       <li className="select-options">
                         <FcComments className="icons" />

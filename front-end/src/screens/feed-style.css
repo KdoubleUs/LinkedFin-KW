@@ -44,6 +44,7 @@
   padding: 3em;
   border-radius: 5px;
   height: 12em;
+  background-color: rgb(248, 248, 248);
 
   /* background-color: yellow; */
 }
@@ -66,6 +67,7 @@
   border-style: solid;
   width: 40em;
   padding: 1.4em;
+  background-color: rgb(248, 248, 248);
 }
 .profile-projects {
   position: relative;
@@ -124,7 +126,7 @@
   padding: 2em;
   margin-right: 1em;
   margin-top: 3em;
-  background-color: #c5cbe3;
+  background-color: rgb(248, 248, 248);
 }
 .news {
   position: relative;
@@ -134,6 +136,8 @@
   /* margin-right: 100em; */
   line-height: 2em;
   margin-bottom: 0.5em;
+  background-color: rgb(78, 76, 76);
+  color: white;
 }
 
 .nav-buttons ul li {
@@ -182,6 +186,7 @@
   justify-content: space-evenly;
   list-style: none;
   margin-bottom: 1em;
+  height: 2em;
 }
 .project-feeds {
   border-style: solid;
@@ -213,6 +218,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 5px;
+  background-color: rgb(248, 248, 248);
 }
 #feed-profile-container {
   height: 30em;
@@ -229,8 +235,6 @@
 }
 .left-column {
   position: relative;
-  top: 50%;
-  transform: translateY(-25%);
 }
 .right-column {
   margin-top: 5em;
@@ -262,4 +266,10 @@
 .pagelink:hover {
   background-color: #c0e4ff;
   opacity: 0.8;
+}
+.select-options:hover {
+  opacity: 0.4;
+}
+.showmore:hover {
+  opacity: 0.4;
 }
