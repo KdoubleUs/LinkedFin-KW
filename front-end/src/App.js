@@ -12,9 +12,10 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [projects, setProjects] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [loading, setLoading] = useState(null);
 
   useEffect(() => {
-    fetch("https://linkyfin.herokuapp.com/projects/")
+    fetch("http://localhost:8000/projects/")
       .then(res => res.json())
       .then(data => {
         setProjects(data);

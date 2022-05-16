@@ -51,7 +51,7 @@ export default function EditProfileModal({
     console.log(formData);
     console.log(options);
 
-    fetch("https://linkyfin.herokuapp.com/profile/update", options)
+    fetch("http://localhost:8000/profile/update", options)
       .then(response => {
         return response.json();
       })

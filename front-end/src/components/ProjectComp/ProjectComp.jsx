@@ -2,12 +2,15 @@ import React from "react";
 import "./project-comp.css";
 import Cookies from "js-cookie";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
 export default function ProjectComp({
   projects,
   setToggle,
   setProjectEditModal,
   setProject,
 }) {
+  const [loading, setLoading] = useState(null);
   const handleClick = id => {
     let options = {
       method: "DELETE",
@@ -20,12 +23,10 @@ export default function ProjectComp({
       body: "",
     };
 
-    fetch(`https://linkyfin.herokuapp.com/projects/${id}/`, options).then(
-      response => {
-        console.log(response);
-        setToggle(prev => !prev);
-      }
-    );
+    fetch(`http://localhost:8000/projects/${id}/`, options).then(response => {
+      console.log(response);
+      setToggle(prev => !prev);
+    });
   };
 
   return (

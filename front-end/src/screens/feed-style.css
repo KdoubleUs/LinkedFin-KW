@@ -227,3 +227,16 @@
   align-self: center;
   border-radius: 50%;
 }
+.left-column {
+  position: relative;
+  top: 50%;
+  transform: translateY(-25%);
+}
+.right-column {
+  margin-top: 5em;
+}
+.preloader {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

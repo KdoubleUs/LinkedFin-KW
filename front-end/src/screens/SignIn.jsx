@@ -41,12 +41,12 @@ function SignIn({ isAuthenticated, setIsAuthenticated, setUser }) {
       credentials: "include",
     };
 
-    fetch("https://linkyfin.herokuapp.com/accounts/login", options)
+    fetch("http://localhost:8000/accounts/login", options)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        fetch("https://linkyfin.herokuapp.com/profile/user", userOptions)
+        fetch("http://localhost:8000/profile/user", userOptions)
           .then(response => {
             return response.json();
           })

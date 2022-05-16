@@ -46,8 +46,8 @@ export default function Modal({
       credentials: "include",
       body: JSON.stringify(newProject),
     };
-
-    fetch(`https://linkyfin.herokuapp.com/projects/${project.id}/`, options)
+    //https://localhost:
+    fetch(`http://localhost:8000/projects/${project.id}/`, options)
       .then(response => {
         return response.json();
       })

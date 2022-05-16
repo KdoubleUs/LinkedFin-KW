@@ -10,8 +10,10 @@ import FeedUser from "../components/FeedUser";
 import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
 import defaultimg from "../images/nouser.png";
+import gif from "../images/pulse-preloader.gif";
 export default function Feed({ projects, user }) {
   const [profiles, setProfiles] = useState([]);
+  const [loading, setLoading] = useState(null);
   const [currentUser, setCurrentUser] = useState({
     image: "",
   });
@@ -27,13 +29,16 @@ export default function Feed({ projects, user }) {
     }
   }, []);
   useEffect(() => {
-    fetch("https://linkyfin.herokuapp.com/profile/all")
+    fetch("http://localhost:8000/profile/all")
       .then(res => res.json())
       .then(data => {
-        setProfiles(data);
+        setInterval(() => {
+          setProfiles(data);
+          setLoading("complete");
+        }, 2000);
       });
   }, []);
-
+  let preLoader = <img src={gif} alt="loading" className="preloader" />;
   return (
     <div className="feed-container">
       {/* <h1 className="feed-title"> LINKFIN PROJECT</h1> */}
@@ -45,73 +50,77 @@ export default function Feed({ projects, user }) {
         <div className="project-feed">
           <Post />
           <div className="line"></div>
-          {projects &&
-            projects.map(project => (
-              <motion.div
-                key={project.id}
-                className="project-feeds"
-                whileHover={{
-                  x: -10,
-                  y: -5,
-                  boxShadow: "10px 5px 50px black",
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="project-box">
-                  <div className="project-text">
-                    {/* <div className="project-component"> */}
-                    <h3 className="project-component-name">{project.title}</h3>
-                    <a
-                      className="project-component-github"
-                      href={`${project.github_link}`}
-                    >
-                      GitHub
-                    </a>
-                    <h5 className="project-component-publish-date">
-                      {project.publish_date}{" "}
-                    </h5>
-                    <p className="project-component-description">
-                      {project.description}
-                    </p>
+          {!loading
+            ? preLoader
+            : projects &&
+              projects.map(project => (
+                <motion.div
+                  key={project.id}
+                  className="project-feeds"
+                  whileHover={{
+                    x: -10,
+                    y: -5,
+                    boxShadow: "10px 5px 50px black",
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="project-box">
+                    <div className="project-text">
+                      {/* <div className="project-component"> */}
+                      <h3 className="project-component-name">
+                        {project.title}
+                      </h3>
+                      <a
+                        className="project-component-github"
+                        href={`${project.github_link}`}
+                      >
+                        GitHub
+                      </a>
+                      <h5 className="project-component-publish-date">
+                        {project.publish_date}{" "}
+                      </h5>
+                      <p className="project-component-description">
+                        {project.description}
+                      </p>
+                    </div>
+                    <div className="owner-picture">
+                      {profiles
+                        .filter(profile => {
+                          return profile.id === project.profile_id;
+                        })
+                        .map((userProfile, index) => (
+                          <img
+                            key={index}
+                            src={userProfile.image}
+                            height="100px"
+                            width="100px"
+                            className="projectprofile-img"
+                          />
+                        ))}
+                    </div>
                   </div>
-                  <div className="owner-picture">
-                    {profiles
-                      .filter(profile => {
-                        return profile.id === project.profile_id;
-                      })
-                      .map((userProfile, index) => (
-                        <img
-                          key={index}
-                          src={userProfile.image}
-                          height="100px"
-                          width="100px"
-                          className="projectprofile-img"
-                        />
-                      ))}
+                  {/* </div> */}
+                  <div className="line"></div>
+                  <div className="like-option">
+                    <ul className="list-option">
+                      <li className="select-options">
+                        {/* <AiFillLike className="icons" /> Like */}Like
+                      </li>
+                      <li className="select-options">
+                        <FcComments className="icons" />
+                        Comment
+                      </li>
+                      <li className="select-options">
+                        {" "}
+                        <GiTronArrow className="icons" />
+                        Subscribe
+                      </li>
+                    </ul>
                   </div>
-                </div>
-                {/* </div> */}
-                <div className="line"></div>
-                <div className="like-option">
-                  <ul className="list-option">
-                    <li className="select-options">
-                      {/* <AiFillLike className="icons" /> Like */}Like
-                    </li>
-                    <li className="select-options">
-                      <FcComments className="icons" />
-                      Comment
-                    </li>
-                    <li className="select-options">
-                      {" "}
-                      <GiTronArrow className="icons" />
-                      Subscribe
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
         </div>
         <Ads className="img-container" />
       </div>

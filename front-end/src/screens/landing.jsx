@@ -16,7 +16,7 @@ const Section = styled.section`
 const Container = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 `;
 const ColumnLeft = styled.div`
@@ -76,7 +76,7 @@ function Landing({ isAuthenticated }) {
         body: JSON.stringify(formData),
       };
 
-      fetch("https://linkyfin.herokuapp.com/accounts/register", options).then(
+      fetch("http://localhost:8000/accounts/register", options).then(
         response => {
           setAccountCreated(true);
         }
@@ -110,104 +110,98 @@ function Landing({ isAuthenticated }) {
     visible: { opacity: 1, y: 0 },
   };
   return (
-    <Section>
-      <Container className="landing-section">
-        <ColumnLeft>
-          <div className="input-container">
-            <form onSubmit={handleSubmit} className="landing-form">
-              <CSRFToken />
-              <motion.input
-                placeholder="Full Name"
-                className="landing-input"
-                variants={slowFade}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                name="username"
-                onChange={handleChange}
-                value={formData.username}
-                required
-              ></motion.input>
-              <motion.input
-                placeholder=" Email"
-                className="landing-input"
-                variants={slowFade2}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
+    // <Section>
+    <Container className="landing-section">
+      <ColumnLeft className="left-column">
+        <div className="input-container">
+          <form onSubmit={handleSubmit} className="landing-form">
+            <CSRFToken />
+            <motion.input
+              placeholder="Full Name"
+              className="landing-input"
+              variants={slowFade}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
+              name="username"
+              onChange={handleChange}
+              value={formData.username}
+              required
+            ></motion.input>
+            <motion.input
+              placeholder=" Email"
+              className="landing-input"
+              variants={slowFade2}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
 
-                // onChange={handleChange}
-                // value={formData.username}
-                // required
-              ></motion.input>
-              <motion.input
-                placeholder="Password"
-                className="landing-input"
-                variants={slowFade3}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                name="password"
-                onChange={handleChange}
-                value={formData.password}
-                required
-              ></motion.input>
-              <motion.input
-                placeholder="Confirm Password"
-                className="landing-input"
-                variants={slowFade4}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                name={"re_password"}
-                onChange={handleChange}
-                value={formData.re_password}
-                required
-              ></motion.input>
-              <Button
-                className="signup-button"
-                whileHover={{ scale: 1.2 }}
-                variants={slowFade5}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                type="submit"
-              >
-                Sign Up
-              </Button>
-            </form>
-          </div>
-        </ColumnLeft>
-        <ColumnRight>
-          <div className="title-container">
-            <motion.h1
-              className="title"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
+              // onChange={handleChange}
+              // value={formData.username}
+              // required
+            ></motion.input>
+            <motion.input
+              placeholder="Password"
+              className="landing-input"
+              variants={slowFade3}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
+              name="password"
+              onChange={handleChange}
+              value={formData.password}
+              required
+            ></motion.input>
+            <motion.input
+              placeholder="Confirm Password"
+              className="landing-input"
+              variants={slowFade4}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
+              name={"re_password"}
+              onChange={handleChange}
+              value={formData.re_password}
+              required
+            ></motion.input>
+            <Button
+              className="signup-button"
+              whileHover={{ scale: 1.2 }}
+              variants={slowFade5}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
+              type="submit"
             >
-              Welcome to your{" "}
-            </motion.h1>
-            <motion.h1
-              className="title"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
-            >
-              Portfolio Community
-            </motion.h1>
-          </div>
-          <img
-            src={img}
-            alt="none"
-            height={400}
-            width={650}
-            id="landing-image"
-          />
-        </ColumnRight>
-        <footer className="footer">LINKFIN 2022 INC.</footer>
-      </Container>
-    </Section>
+              Sign Up
+            </Button>
+          </form>
+        </div>
+      </ColumnLeft>
+      <ColumnRight className="right-column">
+        <div className="title-container">
+          <motion.h1
+            className="title"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            Welcome to your{" "}
+          </motion.h1>
+          <motion.h1
+            className="title"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
+            Portfolio Community
+          </motion.h1>
+        </div>
+        <img src={img} alt="none" height={400} width={650} id="landing-image" />
+      </ColumnRight>
+      <footer className="footer">LINKFIN 2022 INC.</footer>
+    </Container>
+    // </Section>
   );
 }
 
