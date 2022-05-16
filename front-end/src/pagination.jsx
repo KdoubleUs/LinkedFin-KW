@@ -6,12 +6,13 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
     setOfPages.push(i);
   }
   return (
-    <div>
+    <div className="pagination-container">
       <ul className="pagination">
         {setOfPages.map(items => (
           <li key={items.id}>
             <a
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
                 //when i click on page 5 items is going to be on 5. thus
                 //5 will be passed in to the function paginate
                 //the function paginate will be catch in the appjs file

@@ -131,14 +131,14 @@ export default function Feed({ projects, user }) {
                   </div>
                 </motion.div>
               ))}
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={projects.length}
+            paginate={paginate}
+          />
         </div>
         <Ads className="img-container" />
       </div>
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={projects.length}
-        paginate={paginate}
-      />
     </div>
   );
 }
