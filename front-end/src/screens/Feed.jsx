@@ -11,12 +11,20 @@ import { FcComments } from "react-icons/fc";
 import { GiTronArrow } from "react-icons/gi";
 import defaultimg from "../images/nouser.png";
 import gif from "../images/pulse-preloader.gif";
+import Pagination from "../pagination.jsx";
 export default function Feed({ projects, user }) {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(null);
   const [currentUser, setCurrentUser] = useState({
     image: "",
   });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
+
+  const indexOfLastPage = currentPage * postsPerPage;
+  const indexOfFirstPage = indexOfLastPage - postsPerPage;
+  const currentPost = projects.slice(indexOfFirstPage, indexOfLastPage);
+
   useEffect(() => {
     if (user) {
       setCurrentUser({
@@ -39,6 +47,8 @@ export default function Feed({ projects, user }) {
       });
   }, []);
   let preLoader = <img src={gif} alt="loading" className="preloader" />;
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <div className="feed-container">
       {/* <h1 className="feed-title"> LINKFIN PROJECT</h1> */}
@@ -53,7 +63,7 @@ export default function Feed({ projects, user }) {
           {!loading
             ? preLoader
             : projects &&
-              projects.map(project => (
+              currentPost.map(project => (
                 <motion.div
                   key={project.id}
                   className="project-feeds"
@@ -124,7 +134,11 @@ export default function Feed({ projects, user }) {
         </div>
         <Ads className="img-container" />
       </div>
-      {/* <Sidebar /> */}
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={projects.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
