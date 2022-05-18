@@ -70,17 +70,22 @@ function Landing({ isAuthenticated }) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "X-CSRFToken": Cookies.get("csrftoken"),
         },
         credentials: "include",
         body: JSON.stringify(formData),
       };
 
-      fetch("http://localhost:8000/accounts/register", options).then(
-        response => {
+      fetch("http://localhost:8000/accounts/register", options)
+        .then(response => {
           setAccountCreated(true);
-        }
-      );
+          response.json();
+        })
+        .then(data => {
+          if (isAuthenticated == true) {
+            console.log(data);
+            localStorage.setItem("knox", data["token"]);
+          }
+        });
     }
   };
   if (isAuthenticated) {
@@ -115,7 +120,7 @@ function Landing({ isAuthenticated }) {
       <ColumnLeft className="left-column">
         <div className="input-container">
           <form onSubmit={handleSubmit} className="landing-form">
-            <CSRFToken />
+            {/* <CSRFToken /> */}
             <motion.input
               placeholder="Full Name"
               className="landing-input"

@@ -10,6 +10,7 @@ export default function Layout({
   setUser,
 }) {
   useEffect(() => {
+    let knoxToken = localStorage.getItem("knox");
     let options = {
       method: "GET",
       headers: {
@@ -17,6 +18,7 @@ export default function Layout({
         "Content-Type": "application/json",
       },
       credentials: "include",
+      Authorization: `Token ${knoxToken}`,
     };
 
     let userOptions = {

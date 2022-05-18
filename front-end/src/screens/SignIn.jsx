@@ -26,7 +26,6 @@ function SignIn({ isAuthenticated, setIsAuthenticated, setUser }) {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
       },
       credentials: "include",
       body: JSON.stringify(formData),
@@ -43,11 +42,32 @@ function SignIn({ isAuthenticated, setIsAuthenticated, setUser }) {
 
     fetch("http://localhost:8000/accounts/login", options)
       .then(response => {
+        console.log(response);
         return response.json();
       })
       .then(data => {
-        fetch("http://localhost:8000/profile/user", userOptions)
+        console.log(data);
+        localStorage.setItem("knox", data["token"]);
+      })
+      .then(data => {
+        let tokenValue = localStorage.getItem("knox");
+        fetch(
+          "http://localhost:8000/profile/user",
+
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            headers: {
+              Authorization: `Token ${tokenValue}`,
+            },
+          }
+        )
           .then(response => {
+            console.log(response);
             return response.json();
           })
           .then(data => {
