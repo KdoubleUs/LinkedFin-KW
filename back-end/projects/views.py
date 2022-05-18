@@ -1,3 +1,4 @@
+from site import USER_BASE
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, viewsets
@@ -8,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from .serializers import UserSerializer, ProjectSerializer
 from .models import Project
-
+from knox.models import AuthToken
 # @method_decorator(csrf_protect, name="dispatch")
 class CheckAuthenticatedView(APIView):
     def get(self, request, format=None):
@@ -37,7 +38,7 @@ class LoginView(APIView):
 
             if user is not None:
                 auth.login(request, user)
-                return Response({'success': 'User authenticated', 'username': username})
+                return Response({'success': 'User authenticated', 'username': username, 'token':AuthToken.objects.create(user)[1]})
             else:
                 return Response({'error': 'Error Authenticating'})
         except:
@@ -80,7 +81,7 @@ class SignupView(APIView):
                             user_id=user_account)
                         user_profile.save()
 
-                        return Response({'success': 'User created successfully!'})
+                        return Response({'success': 'User created successfully!', 'token': AuthToken.objects.create(user)[1]})
             else:
                 return Response({'error': "Passwords do not match!"})
         except:
