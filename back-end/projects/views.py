@@ -9,7 +9,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from .serializers import UserSerializer, ProjectSerializer
 from .models import Project
 
-@method_decorator(csrf_protect, name="dispatch")
+# @method_decorator(csrf_protect, name="dispatch")
 class CheckAuthenticatedView(APIView):
     def get(self, request, format=None):
         try:
@@ -23,7 +23,6 @@ class CheckAuthenticatedView(APIView):
             return Response({'error': 'Something went wrong when checking authentication status'})
 
 
-@method_decorator(csrf_protect, name="dispatch")
 class LoginView(APIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -54,7 +53,7 @@ class LogoutView(APIView):
             return Response({'error': 'Something went wrong when logging you out!'})
 
 
-@method_decorator(csrf_protect, name='dispatch')
+# @method_decorator(csrf_protect, name='dispatch')
 class SignupView(APIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -88,7 +87,7 @@ class SignupView(APIView):
             return Response({'error': "Something went wrong signing you up!"})
 
 
-@method_decorator(ensure_csrf_cookie, name="dispatch")
+# @method_decorator(ensure_csrf_cookie, name="dispatch")
 class GetCSRFToken(APIView):
     permission_classes = (permissions.AllowAny,)
 
