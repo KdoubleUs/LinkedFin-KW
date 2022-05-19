@@ -99,9 +99,10 @@ function SignIn({ isAuthenticated, setIsAuthenticated, setUser }) {
           required
         ></input>
         <input
-          id="textfield"
+          id="textfields"
           className="signinField"
           type="password"
+          autoComplete="on"
           name="password"
           onChange={handleChange}
           value={formData.password}

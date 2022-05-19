@@ -13,12 +13,13 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    const knoxToken = localStorage.getItem("knox");
     let options = {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
     };
@@ -32,6 +33,9 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
           setIsAuthenticated(false);
           navigate("/");
         }
+      })
+      .then(data => {
+        localStorage.clear();
       });
   };
 

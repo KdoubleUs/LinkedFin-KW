@@ -12,12 +12,13 @@ export default function ProjectComp({
 }) {
   const [loading, setLoading] = useState(null);
   const handleClick = id => {
+    const knoxToken = localStorage.getItem("knox");
     let options = {
       method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
       body: "",

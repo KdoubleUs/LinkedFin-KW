@@ -60,4 +60,7 @@ class GetUserProfilesView(APIView):
       profiles = User_profile.objects.all()
 
       profiles = ProfileSerializer(profiles, many=True)
+      
       return Response(profiles.data)
+    
+    

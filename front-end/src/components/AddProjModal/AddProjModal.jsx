@@ -4,16 +4,14 @@ import Cookies from "js-cookie";
 import "./AddProjModal.css";
 
 export default function Modal({ setShowModal, profile_id, setToggle }) {
-
   const [newProject, setNewProject] = useState({
     title: "",
     github_link: "",
     description: "",
-    profile_id
+    profile_id,
   });
 
-
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { name, value } = event.target;
     setNewProject({
       ...newProject,
@@ -21,34 +19,35 @@ export default function Modal({ setShowModal, profile_id, setToggle }) {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     // <ProjectComp project={event} />
+    const knoxToken = localStorage.getItem("knox");
     let options = {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
-      body: JSON.stringify(newProject)
+      body: JSON.stringify(newProject),
     };
-      
+
     // console.log(newProject)
-    
+
     fetch("http://localhost:8000/projects/", options)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        console.log(data)
+        console.log(data);
         // setUserProjects(prev => ([
         //   ...prev,
         //   data
         // ]))
-        setToggle(prev => !prev)
-        setShowModal(prev => !prev)
+        setToggle(prev => !prev);
+        setShowModal(prev => !prev);
       });
   };
 

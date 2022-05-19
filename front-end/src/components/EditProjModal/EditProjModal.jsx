@@ -36,12 +36,13 @@ export default function Modal({
 
   const handleSubmit = event => {
     event.preventDefault();
+    const knoxToken = localStorage.getItem("knox");
     let options = {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
       body: JSON.stringify(newProject),

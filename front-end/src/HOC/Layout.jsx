@@ -28,6 +28,7 @@ export default function Layout({
         "Content-Type": "application/json",
       },
       credentials: "include",
+      Authorization: `Token ${knoxToken}`,
     };
 
     fetch("http://localhost:8000/accounts/authenticated", options)

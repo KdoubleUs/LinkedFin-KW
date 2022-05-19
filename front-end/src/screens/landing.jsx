@@ -153,6 +153,7 @@ function Landing({ isAuthenticated }) {
               animate="visible"
               transition={{ duration: 1 }}
               name="password"
+              autoComplete="on"
               onChange={handleChange}
               type="password"
               value={formData.password}
@@ -168,6 +169,7 @@ function Landing({ isAuthenticated }) {
               name={"re_password"}
               onChange={handleChange}
               type="password"
+              autoComplete="on"
               value={formData.re_password}
               required
             ></motion.input>

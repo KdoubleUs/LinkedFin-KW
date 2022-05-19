@@ -36,20 +36,17 @@ export default function EditProfileModal({
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    const knoxToken = localStorage.getItem("knox");
     let options = {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
       body: JSON.stringify(formData),
     };
-
-    console.log(formData);
-    console.log(options);
 
     fetch("http://localhost:8000/profile/update", options)
       .then(response => {
