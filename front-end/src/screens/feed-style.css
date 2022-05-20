@@ -17,10 +17,7 @@
   padding: 0.6em;
   margin-right: 0.5em;
 }
-#add-projects {
-  padding: 0.5em;
-  width: 10em;
-}
+
 .buttons:hover {
   background-color: #4056a1;
   color: white;
@@ -30,23 +27,6 @@
   color: white;
 }
 
-.profilecomp {
-  border-style: solid;
-  position: relative;
-  width: 40em;
-  display: flex;
-  flex-direction: column;
-  margin-left: 1em;
-  margin-top: 1em;
-  padding: 3em;
-  border-radius: 5px;
-  height: 15em;
-  background-color: rgb(248, 248, 248);
-  background-image: url("../images/back.jpeg");
-  background-size: 100% 70%;
-  background-repeat: no-repeat;
-  background-position: cover;
-}
 .project-container {
   position: relative;
   height: 15em;
@@ -150,8 +130,7 @@
 }
 .projects-container {
   display: flex;
-  justify-content: space-between;
-  width: 100em;
+  justify-content: space-around;
 }
 .project-feed {
   margin-top: 3em;
@@ -270,8 +249,4 @@
 }
 .showmore:hover {
   opacity: 0.4;
-}
-.profile-bio {
-  display: flex;
-  flex-direction: column;
 }

@@ -30,7 +30,9 @@ export default function ProfileComp({ profile, setProfileModal, username }) {
         </button>
       </div>
       <div className="profile-pic-bg">
+        {/* <div className="profile-pic-bg"> */}
         <img className="profile-component-image" src={profile.image} />
+        {/* </div> */}
       </div>
     </div>
   );
