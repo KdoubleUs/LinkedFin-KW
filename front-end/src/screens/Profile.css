@@ -21,5 +21,15 @@
 .profile-containers {
   display: flex;
   justify-content: space-between;
-  width: 100em;
+  width: 40em;
+}
+.profile-bio {
+  color: white;
+}
+.profile-pic-bg {
+  border: solid rgb(248, 248, 248) 5px;
+  border-radius: 50%;
+}
+.profile-screen {
+  margin-top: 7em;
 }
