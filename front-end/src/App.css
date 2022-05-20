@@ -1,7 +1,10 @@
 :root {
   --BlueFin: #2a9df4;
 }
-
+.app {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 /* BACKGROUND */
 .landing-section {
   background: #abbaab; /* fallback for old browsers */
@@ -211,7 +214,11 @@ input {
   background-color: rgb(248, 248, 248);
 }
 .projects {
-  width: 15em;
+  border-bottom: black 0.5em;
+  border-style: solid;
+  width: 48em;
+  position: relative;
+  padding: 0.5em;
 }
 .profile-title {
   margin: 1em 0 0.5em 0;
@@ -283,80 +290,6 @@ body {
   word-spacing: 0.2em;
 }
 
-/*Signin Style */
-
-/* .signinContainer { */
-/* margin-top: 10vh; */
-/* justify-content: center; */
-/* text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  height: 55vh;
-  width: 60vh;
-  color: white;
-  background-color: white;
-
-  border: 2px #2a9df4 solid;
-  border-radius: 5px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-}
-.signinButton {
-  display: flex;
-  position: relative;
-  top: 0;
-  margin: 0 auto;
-  height: 35px;
-  width: 120px;
-  border: #2a9df4 2px solid;
-  border-radius: 20px;
-  background-color: white;
-  font-family: Helvetica-Bold;
-  color: #2a9df4;
-  align-items: center;
-  justify-content: center;
-}
-.text-container {
-  top: 0;
-  height: 3em;
-  background-color: blue;
-}
-.topText {
-  margin-bottom: 10em;
-
-  top: 0;
-}
-#textfield {
-  padding-bottom: 7px;
-  padding-top: 7px;
-}
-.signinInput {
-  padding-top: 10%;
-
-  display: flex;
-  height: 150px;
-  width: 400px;
-  margin: 0 auto;
-  border-radius: 3px;
-  row-gap: 30px;
-  flex-direction: column;
-}
-
-input {
-  font-family: Helvetica;
-  height: 150px;
-  width: 300px;
-  font-size: large;
-  border: 1.5px solid #2a9df4;
-}
-.usernameField {
-  border: 2px #2a9df4 solid;
-}
-.passwordField {
-  border: 2px #2a9df4 solid;
-} */
-
 /* kw sign in style*/
 .signinContainer {
   position: relative;
@@ -420,9 +353,7 @@ input {
   padding: 1.2em;
   border-radius: 5px;
 }
-.projects {
-  width: 15em;
-}
+
 .profile-title {
   margin: 1em 0 0.5em 0;
   text-align: center;

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from datetime import timedelta
 import os
 import dj_database_url
 from pathlib import Path
@@ -176,6 +177,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
+
+
+# REST_KNOX = {
+#     'SECURE_HASH_ALGORITHM': 'cryptography.hazmat.primitives.hashes.SHA512',
+#     'TOKEN_TTL': timedelta(hours=10),  # default time 10h
+#     'TOKEN_LIMIT_PER_USER': None,
+#     'AUTO_REFRESH': False,
+
+#     }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 django_heroku.settings(locals())

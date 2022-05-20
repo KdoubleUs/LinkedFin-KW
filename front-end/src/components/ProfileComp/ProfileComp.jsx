@@ -6,18 +6,18 @@ import "./profile-comp.css";
 export default function ProfileComp({ profile, setProfileModal, username }) {
   return (
     <div className="profile-containers">
-      {/* <div className="profile-component"> */}
-      <Link to={`/profile/${profile._id}`}>
-        <h3 className="profile-component-name">{profile.name}</h3>
-      </Link>
-      <h3 className="name-heading">{username}</h3>
-      <img className="profile-component-image" src={profile.image} />
-      <p className="profile-component-bio">{profile.bio}</p>
-      <a className="profile-component-github" href={`${profile.github}`}>
-        Personal GitHub
-      </a>
-      <img className="github-img" src={image} height={20} width={20} />
-      <div>
+      <div className="profile-bio">
+        <Link to={`/profile/${profile._id}`}>
+          <h3 className="profile-component-name">{profile.name}</h3>
+        </Link>
+        <h3 className="name-heading">{username}</h3>
+        <p className="profile-component-bio">{profile.bio}</p>
+        <div>
+          <a className="profile-component-github" href={`${profile.github}`}>
+            Personal GitHub
+          </a>
+          <img className="github-img" src={image} height={20} width={20} />
+        </div>
         <button
           className="buttons"
           id="edit-profilebtn"
@@ -28,7 +28,7 @@ export default function ProfileComp({ profile, setProfileModal, username }) {
           Edit Profile
         </button>
       </div>
-      {/* </div> */}
+      <img className="profile-component-image" src={profile.image} />
     </div>
   );
 }

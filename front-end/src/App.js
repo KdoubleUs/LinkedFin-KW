@@ -6,7 +6,6 @@ import Feed from "./screens/Feed.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./HOC/Layout.jsx";
 import { useState, useEffect } from "react";
-
 function App() {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,13 +20,32 @@ function App() {
         setProjects(data);
       });
   }, [user, toggle]);
-
+  useEffect(() => {
+    let knoxToken = localStorage.getItem("knox");
+    if (knoxToken) {
+    }
+    let headers = {
+      Accept: "application/json",
+      Authorization: `Token ${knoxToken}`,
+    };
+    let options = {
+      method: "GET",
+      headers: headers,
+    };
+    fetch(`"http://localhost:8000/accounts/user"`, options)
+      .then(res => res.json())
+      .then(data => {
+        setUser(data);
+      })
+      .catch(err => console.log(err));
+  });
   return (
     <div className="app">
       <Layout
         isAuthenticated={isAuthenticated}
         setIsAuthenticated={setIsAuthenticated}
         setUser={setUser}
+        user={user}
         className="hoc"
       >
         <Routes>
