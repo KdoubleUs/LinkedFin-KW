@@ -86,7 +86,6 @@ function Profile({ user, projects, setToggle, setUser }) {
               user={user}
             />
           ) : null}
-          {/* <div className="profile-projects"> */}
           <ProjectComp
             setToggle={setToggle}
             projects={userProjects}

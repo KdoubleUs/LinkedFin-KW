@@ -1,6 +1,4 @@
 .feed-container {
-  /* height: 100vh; */
-  /* width: 100%; */
   position: relative;
 }
 .feed-title {
@@ -47,15 +45,7 @@
   padding: 1.4em;
   background-color: rgb(248, 248, 248);
 }
-.profile-projects {
-  position: relative;
-}
-/* .personal-projects {
-  position: relative;
 
-  top: 20%;
-  background: #e2d1c3;
-} */
 .profile-component-image {
   float: right;
   border-radius: 50%;
